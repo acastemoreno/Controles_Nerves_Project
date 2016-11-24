@@ -1,0 +1,27 @@
+<h3>Angulo actual: <%= @angulo %></h3>
+
+<h2>Desplazamiento:</h2>
+<%= form_for @conn, page_path(@conn, :post_relativo), [as: "angulo"], fn f -> %>
+<div class="form-group">
+  <%= label f, :delta, class: "control-label" %>
+  <%= number_input f, :delta, class: "form-control", step: "3.75" %>
+  <%= error_tag f, :delta %>
+</div>
+
+<div class="form-group">
+  <%= submit "Submit", class: "btn btn-primary" %>
+</div>
+<% end %>
+
+<h2>Mover a Posición absoluta:</h2>
+<%= form_for @conn, page_path(@conn, :post_absoluto), [as: "angulo"], fn f -> %>
+<div class="form-group">
+  <%= label f, :absoluto, class: "control-label" %>
+  <%= number_input f, :absoluto, class: "form-control", step: "3.75" %>
+  <%= error_tag f, :absoluto %>
+</div>
+
+<div class="form-group">
+  <%= submit "Submit", class: "btn btn-primary" %>
+</div>
+<% end %>
